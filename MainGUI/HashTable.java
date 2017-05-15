@@ -28,6 +28,7 @@ public class HashTable {
     }
 
     public boolean addEmployee(EmployeeInfo theEmployee) {
+        numItems++;
         return buckets[calcBucket(theEmployee.getEmployeeNumber())].add(theEmployee);
     }
 
@@ -49,6 +50,7 @@ public class HashTable {
             toRemove = buckets[calcBucket(employeeNum)].get(searchEmployee(employeeNum));
             buckets[calcBucket(employeeNum)].remove(searchEmployee(employeeNum));
         }
+        numItems--;
         return toRemove;
     }
 
