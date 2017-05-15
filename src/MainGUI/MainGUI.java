@@ -134,14 +134,14 @@ public class MainGUI extends javax.swing.JFrame {
         tabEType = new javax.swing.JTabbedPane();
         panelPartTime = new javax.swing.JPanel();
         labelHours = new javax.swing.JLabel();
-        fieldHours = new javax.swing.JTextField();
         labelWeeks = new javax.swing.JLabel();
-        fieldWeeks = new javax.swing.JTextField();
         labelWage = new javax.swing.JLabel();
-        fieldWage = new javax.swing.JTextField();
+        spinnerHours = new javax.swing.JSpinner();
+        spinnerWeeks = new javax.swing.JSpinner();
+        spinnerWage = new javax.swing.JSpinner();
         panelFullTime = new javax.swing.JPanel();
         labelAnnualSalary = new javax.swing.JLabel();
-        fieldAnnualSalary = new javax.swing.JTextField();
+        spinnerAnnualSalary = new javax.swing.JSpinner();
         exitWindow = new javax.swing.JDialog();
         Cancel = new javax.swing.JButton();
         Save = new javax.swing.JButton();
@@ -314,27 +314,15 @@ public class MainGUI extends javax.swing.JFrame {
 
         labelHours.setText("Hours per Week");
 
-        fieldHours.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fieldHoursActionPerformed(evt);
-            }
-        });
-
         labelWeeks.setText("Weeks per Year");
-
-        fieldWeeks.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fieldWeeksActionPerformed(evt);
-            }
-        });
 
         labelWage.setText("Wage");
 
-        fieldWage.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fieldWageActionPerformed(evt);
-            }
-        });
+        spinnerHours.setModel(new javax.swing.SpinnerNumberModel(0, 0, 168, 1));
+
+        spinnerWeeks.setModel(new javax.swing.SpinnerNumberModel(0, 0, 52, 1));
+
+        spinnerWage.setModel(new javax.swing.SpinnerNumberModel(0.0d, 0.0d, null, 1.0d));
 
         javax.swing.GroupLayout panelPartTimeLayout = new javax.swing.GroupLayout(panelPartTime);
         panelPartTime.setLayout(panelPartTimeLayout);
@@ -343,43 +331,39 @@ public class MainGUI extends javax.swing.JFrame {
             .addGroup(panelPartTimeLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panelPartTimeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(fieldHours)
-                    .addComponent(fieldWeeks)
-                    .addComponent(fieldWage)
+                    .addComponent(spinnerHours, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(spinnerWeeks)
                     .addGroup(panelPartTimeLayout.createSequentialGroup()
                         .addGroup(panelPartTimeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(labelHours)
                             .addComponent(labelWeeks)
                             .addComponent(labelWage))
-                        .addGap(0, 109, Short.MAX_VALUE)))
+                        .addGap(0, 109, Short.MAX_VALUE))
+                    .addComponent(spinnerWage))
                 .addContainerGap())
         );
         panelPartTimeLayout.setVerticalGroup(
             panelPartTimeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelPartTimeLayout.createSequentialGroup()
                 .addComponent(labelHours)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(fieldHours, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(1, 1, 1)
+                .addComponent(spinnerHours, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(labelWeeks)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(fieldWeeks, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(1, 1, 1)
+                .addComponent(spinnerWeeks, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(labelWage)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(fieldWage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0))
+                .addComponent(spinnerWage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         tabEType.addTab("Part-Time", panelPartTime);
 
         labelAnnualSalary.setText("Annual Salary");
 
-        fieldAnnualSalary.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fieldAnnualSalaryActionPerformed(evt);
-            }
-        });
+        spinnerAnnualSalary.setModel(new javax.swing.SpinnerNumberModel(0.0d, 0.0d, null, 10000.0d));
 
         javax.swing.GroupLayout panelFullTimeLayout = new javax.swing.GroupLayout(panelFullTime);
         panelFullTime.setLayout(panelFullTimeLayout);
@@ -391,7 +375,7 @@ public class MainGUI extends javax.swing.JFrame {
                     .addGroup(panelFullTimeLayout.createSequentialGroup()
                         .addComponent(labelAnnualSalary)
                         .addGap(0, 120, Short.MAX_VALUE))
-                    .addComponent(fieldAnnualSalary))
+                    .addComponent(spinnerAnnualSalary))
                 .addContainerGap())
         );
         panelFullTimeLayout.setVerticalGroup(
@@ -400,8 +384,8 @@ public class MainGUI extends javax.swing.JFrame {
                 .addGap(15, 15, 15)
                 .addComponent(labelAnnualSalary)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(fieldAnnualSalary, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(spinnerAnnualSalary, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(123, Short.MAX_VALUE))
         );
 
         tabEType.addTab("Full-Time", panelFullTime);
@@ -875,11 +859,11 @@ public class MainGUI extends javax.swing.JFrame {
         fieldLN.setText("");
         comboxSex.setSelectedIndex(0);
         comboxWorkLocation.setSelectedIndex(0);
-        spinnerDeductionsRate.setValue(0);
-        fieldAnnualSalary.setText("");
-        fieldWeeks.setText("");
-        fieldHours.setText("");
-        fieldWage.setText("");
+        spinnerDeductionsRate.setValue(0.0);
+        spinnerAnnualSalary.setValue(0.0);
+        spinnerWeeks.setValue(0);
+        spinnerHours.setValue(0);
+        spinnerWage.setValue(0.0);
     }
 
     private void btnRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveActionPerformed
@@ -905,22 +889,6 @@ public class MainGUI extends javax.swing.JFrame {
    
     }//GEN-LAST:event_btnAddMouseClicked
 
-    private void fieldAnnualSalaryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldAnnualSalaryActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_fieldAnnualSalaryActionPerformed
-
-    private void fieldWageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldWageActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_fieldWageActionPerformed
-
-    private void fieldWeeksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldWeeksActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_fieldWeeksActionPerformed
-
-    private void fieldHoursActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldHoursActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_fieldHoursActionPerformed
-
     private void btnSaveAndExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveAndExitActionPerformed
         btnSaveAndCreateNewActionPerformed(evt);
         formAdd.setVisible(false);
@@ -933,31 +901,30 @@ public class MainGUI extends javax.swing.JFrame {
         if (mainHashTable.searchEmployee((int) spinnerEN.getValue()) != -1
                 || ("".equals(fieldFN.getText()))
                 || ("".equals(fieldLN.getText()))
-                || (((double) spinnerDeductionsRate.getValue() < 0) || ((double) spinnerDeductionsRate.getValue() > 1))
-                || ((tabEType.getSelectedComponent() == panelFullTime) && (fieldAnnualSalary.getText() == null))) {
+                || (((double) spinnerDeductionsRate.getValue() < 0) || ((double) spinnerDeductionsRate.getValue() > 1))) {
             ErrorWindow.pack();
             ErrorWindow.setVisible(true);
         } else {
             if (tabEType.getSelectedComponent() == panelFullTime) {
                 mainHashTable.addEmployee(new FullTimeEmployee(
-                        (Integer) (spinnerEN.getValue()),
+                        (Integer) spinnerEN.getValue(),
                         fieldFN.getText(),
                         fieldLN.getText(),
                         comboxSex.getSelectedIndex(),
                         comboxWorkLocation.getSelectedIndex(),
                         (Double) spinnerDeductionsRate.getValue(),
-                        Double.parseDouble(fieldAnnualSalary.getText())));
+                        (Double)(spinnerAnnualSalary.getValue())));
             } else if (tabEType.getSelectedComponent() == panelPartTime) {
                 mainHashTable.addEmployee(new PartTimeEmployee(
-                        ((Integer) spinnerEN.getValue()),
+                        (Integer) spinnerEN.getValue(),
                         fieldFN.getText(),
                         fieldLN.getText(),
                         comboxSex.getSelectedIndex(),
                         comboxWorkLocation.getSelectedIndex(),
-                        Double.parseDouble(fieldWage.getText()),
+                        (Double) spinnerWage.getValue(),
                         (Double) spinnerDeductionsRate.getValue(),
-                        Integer.parseInt(fieldHours.getText()),
-                        Integer.parseInt(fieldWeeks.getText())));
+                        (Integer)spinnerHours.getValue(),
+                        (Integer)spinnerWeeks.getValue()));
                 
             }
             updateTable();
@@ -1038,12 +1005,12 @@ public class MainGUI extends javax.swing.JFrame {
         if (selectedEmployee instanceof PartTimeEmployee) {
             PartTimeEmployee selectedPartTimeEmployee = (PartTimeEmployee) selectedEmployee;
             tabEType.setSelectedComponent(panelPartTime);
-            fieldHours.setText(Integer.toString(selectedPartTimeEmployee.getNumHours()));
-            fieldWeeks.setText(Integer.toString(selectedPartTimeEmployee.getNumHours()));
-            fieldWage.setText(Integer.toString(selectedPartTimeEmployee.getNumWeeks()));
+            spinnerHours.setValue(selectedPartTimeEmployee.getNumHours());
+            spinnerWeeks.setValue(selectedPartTimeEmployee.getNumHours());
+            spinnerWage.setValue(selectedPartTimeEmployee.getNumWeeks());
         } else if (selectedEmployee instanceof FullTimeEmployee) {
             FullTimeEmployee selectedFullTimeEmployee = (FullTimeEmployee) selectedEmployee;
-            fieldAnnualSalary.setText(Double.toString(selectedFullTimeEmployee.getYearlySalary()));
+            spinnerAnnualSalary.setValue(selectedFullTimeEmployee.getYearlySalary());
         }
         spinnerEN.setValue(selectedEmployee.getEmployeeNumber());
         fieldFN.setText(selectedEmployee.getFirstName());
@@ -1089,6 +1056,7 @@ public class MainGUI extends javax.swing.JFrame {
     private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okButtonActionPerformed
         // TODO add your handling code here:
         ErrorWindow.setVisible(false);
+        formAdd.setVisible(true);
     }//GEN-LAST:event_okButtonActionPerformed
 
     /**
@@ -1153,12 +1121,8 @@ public class MainGUI extends javax.swing.JFrame {
     private javax.swing.JTable employeeTable;
     private javax.swing.JMenuItem exitMenuItem;
     private javax.swing.JDialog exitWindow;
-    private javax.swing.JTextField fieldAnnualSalary;
     private javax.swing.JTextField fieldFN;
-    private javax.swing.JTextField fieldHours;
     private javax.swing.JTextField fieldLN;
-    private javax.swing.JTextField fieldWage;
-    private javax.swing.JTextField fieldWeeks;
     private javax.swing.JDialog formAdd;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -1189,8 +1153,12 @@ public class MainGUI extends javax.swing.JFrame {
     private javax.swing.JMenuItem saveMenuItem;
     private javax.swing.JDialog saveWindow;
     private javax.swing.JScrollPane scrollPanel;
+    private javax.swing.JSpinner spinnerAnnualSalary;
     private javax.swing.JSpinner spinnerDeductionsRate;
     private javax.swing.JSpinner spinnerEN;
+    private javax.swing.JSpinner spinnerHours;
+    private javax.swing.JSpinner spinnerWage;
+    private javax.swing.JSpinner spinnerWeeks;
     private javax.swing.JTabbedPane tabEType;
     // End of variables declaration//GEN-END:variables
 }

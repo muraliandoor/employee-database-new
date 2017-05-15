@@ -292,9 +292,8 @@
                           <Group type="102" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="fieldHours" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="fieldWeeks" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="fieldWage" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="spinnerHours" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="spinnerWeeks" alignment="0" max="32767" attributes="0"/>
                                   <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="labelHours" min="-2" max="-2" attributes="0"/>
@@ -303,6 +302,7 @@
                                       </Group>
                                       <EmptySpace min="0" pref="109" max="32767" attributes="0"/>
                                   </Group>
+                                  <Component id="spinnerWage" alignment="0" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
@@ -312,17 +312,17 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="labelHours" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="fieldHours" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+                              <Component id="spinnerHours" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="labelWeeks" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="fieldWeeks" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+                              <Component id="spinnerWeeks" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="labelWage" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="fieldWage" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                              <Component id="spinnerWage" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -333,30 +333,36 @@
                         <Property name="text" type="java.lang.String" value="Hours per Week"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="fieldHours">
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fieldHoursActionPerformed"/>
-                      </Events>
-                    </Component>
                     <Component class="javax.swing.JLabel" name="labelWeeks">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Weeks per Year"/>
                       </Properties>
-                    </Component>
-                    <Component class="javax.swing.JTextField" name="fieldWeeks">
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fieldWeeksActionPerformed"/>
-                      </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="labelWage">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Wage"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="fieldWage">
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fieldWageActionPerformed"/>
-                      </Events>
+                    <Component class="javax.swing.JSpinner" name="spinnerHours">
+                      <Properties>
+                        <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+                          <SpinnerModel initial="0" maximum="168" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
+                        </Property>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JSpinner" name="spinnerWeeks">
+                      <Properties>
+                        <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+                          <SpinnerModel initial="0" maximum="52" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
+                        </Property>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JSpinner" name="spinnerWage">
+                      <Properties>
+                        <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+                          <SpinnerModel initial="0.0" minimum="0.0" numberType="java.lang.Double" stepSize="1.0" type="number"/>
+                        </Property>
+                      </Properties>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -379,7 +385,7 @@
                                       <Component id="labelAnnualSalary" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="0" pref="120" max="32767" attributes="0"/>
                                   </Group>
-                                  <Component id="fieldAnnualSalary" max="32767" attributes="0"/>
+                                  <Component id="spinnerAnnualSalary" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
@@ -391,8 +397,8 @@
                               <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                               <Component id="labelAnnualSalary" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="fieldAnnualSalary" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="spinnerAnnualSalary" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace pref="123" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -403,10 +409,12 @@
                         <Property name="text" type="java.lang.String" value="Annual Salary"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="fieldAnnualSalary">
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fieldAnnualSalaryActionPerformed"/>
-                      </Events>
+                    <Component class="javax.swing.JSpinner" name="spinnerAnnualSalary">
+                      <Properties>
+                        <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+                          <SpinnerModel initial="0.0" minimum="0.0" numberType="java.lang.Double" stepSize="10000.0" type="number"/>
+                        </Property>
+                      </Properties>
                     </Component>
                   </SubComponents>
                 </Container>
